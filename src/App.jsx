@@ -3,6 +3,7 @@ import './App.css'
 import MainPage from './MainPage/MainPage.jsx'
 import GamePage from './GamePage/GamePage.jsx'
 import ImagePage from './ImagePage/ImagePage.jsx'
+import Grid from './Grid/Grid.jsx'
 
 
 function App() {
@@ -11,9 +12,12 @@ function App() {
      <BrowserRouter>
      <Routes>
       <Route path ="/" element = {<MainPage />} />
-      <Route path ="/game" element = {<GamePage />} />
+
+      <Route path ="/game" element = {<GamePage />} >
+        <Route path="" element = {<Grid/>}/>
+        <Route path ="image/:id" element = {<ImagePage />} />
+      </Route>
       <Route path ="*" element = {<MainPage />} />
-      <Route path ="/image" element = {<ImagePage />} />
      </Routes>
      </BrowserRouter>
     </>
